@@ -1,8 +1,24 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-export default class Project extends Component<{}, {}> {
+interface Props {
+  project: ProjectProps;
+}
+
+interface ProjectProps {
+  title: string;
+  description: string;
+  creator: CreatorProps;
+}
+
+interface CreatorProps {
+  name: string;
+}
+
+export default class Project extends Component<Props, {}> {
   render() {
+    console.log(this.props);
+
     return (
       <div className="card mx-2 mb-3" style={{ width: 300 }}>
         <img
@@ -12,18 +28,14 @@ export default class Project extends Component<{}, {}> {
         />
         <div className="card-body">
           <h2 className="card-title">
-            <Link to={`/projectDetail`}>Nom du projet</Link>
+            <Link to={`/projectDetail`}>{this.props.project.title}</Link>
           </h2>
           <p className="card-text">
-            Non anim anim ipsum ullamco duis laborum quis pariatur sint ullamco.
-            Ullamco proident excepteur aute dolor qui id adipisicing ut eiusmod
-            commodo sunt sit laboris in. Amet veniam incididunt cillum
-            incididunt dolore adipisicing laborum laboris aliquip duis fugiat ex
-            aute.
+            <strong className="text-muted">
+              {this.props.project.creator.name}
+            </strong>
           </p>
-          <p className="card-text">
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </p>
+          <p className="card-text">{this.props.project.description}</p>
         </div>
       </div>
     );
