@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Project extends Component<{}, {}> {
   render() {
@@ -10,7 +11,9 @@ export default class Project extends Component<{}, {}> {
           alt="Card image cap"
         />
         <div className="card-body">
-          <h2 className="card-title">Nom du projet</h2>
+          <h2 className="card-title">
+            <Link to={`/projectDetail`}>Nom du projet</Link>
+          </h2>
           <p className="card-text">
             Non anim anim ipsum ullamco duis laborum quis pariatur sint ullamco.
             Ullamco proident excepteur aute dolor qui id adipisicing ut eiusmod
