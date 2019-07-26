@@ -17,8 +17,6 @@ interface CreatorProps {
 
 export default class Project extends Component<Props, {}> {
   render() {
-    console.log(this.props);
-
     return (
       <div className="card mx-2 mb-3" style={{ width: 300 }}>
         <img
@@ -31,11 +29,13 @@ export default class Project extends Component<Props, {}> {
             <Link to={`/projectDetail`}>{this.props.project.title}</Link>
           </h2>
           <p className="card-text">
-            <strong className="text-muted">
+            <strong className="text-muted project-author">
               {this.props.project.creator.name}
             </strong>
           </p>
-          <p className="card-text">{this.props.project.description}</p>
+          <p className="card-text project-description">
+            {this.props.project.description}
+          </p>
         </div>
       </div>
     );
