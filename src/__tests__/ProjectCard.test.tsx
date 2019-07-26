@@ -5,27 +5,23 @@ import { Link } from "react-router-dom";
 
 describe("testing ProjectList component", () => {
   it("renders without crashing", () => {
-    const projectTitle = "Beta Testers Website";
-    const projectDescription =
-      "Plateforme qui permet aux développeurs de montrer leurs projets et offrir aux intéressés la possibilité de tester leur projet.";
-    const creator = {
-      name: "Michael Provencher"
+    const projectMock = {
+      title: "Beta Testers Website",
+      description:
+        "Plateforme qui permet aux développeurs de montrer leurs projets et offrir aux intéressés la possibilité de tester leur projet.",
+      creator: {
+        name: "Michael Provencher"
+      }
     };
-    const wrapper = shallow(
-      <ProjectCard
-        project={{
-          title: projectTitle,
-          description: projectDescription,
-          creator: creator
-        }}
-      />
-    );
+    const wrapper = shallow(<ProjectCard project={projectMock} />);
     expect(wrapper.exists()).toEqual(true);
     expect(wrapper.find("img").prop("src")).toEqual("vga.png");
-    expect(wrapper.find(Link).props().children).toEqual(projectTitle);
+    expect(wrapper.find(Link).props().children).toEqual(projectMock.title);
     expect(wrapper.find(".project-description").text()).toEqual(
-      projectDescription
+      projectMock.description
     );
-    expect(wrapper.find(".project-author").text()).toEqual(creator.name);
+    expect(wrapper.find(".project-author").text()).toEqual(
+      projectMock.creator.name
+    );
   });
 });

@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
-const user = gql`
+const projectsQuery = gql`
   {
     projects(count: 2) {
       paginatorInfo {
@@ -26,7 +26,7 @@ const user = gql`
 export default class ProjectList extends React.Component {
   render() {
     return (
-      <Query query={user}>
+      <Query query={projectsQuery}>
         {({ loading, error, data }) => {
           if (loading) return <div>Fetching</div>;
           if (error) return <div>Error</div>;
