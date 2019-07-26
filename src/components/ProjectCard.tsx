@@ -1,24 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
-interface Props {
-  project: ProjectProps;
-}
-
-interface ProjectProps {
-  title: string;
-  description: string;
-  creator: CreatorProps;
-}
-
-interface CreatorProps {
-  name: string;
-}
+import { Props } from "../types/types";
 
 export default class Project extends Component<Props, {}> {
   render() {
     return (
-      <div className="card mx-2 mb-3" style={{ width: 300 }}>
+      <div className="card mx-2 mb-3" style={{ width: 500 }}>
         <img
           className="card-img-top"
           src={require("../img/vga.png")}
