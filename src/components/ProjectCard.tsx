@@ -9,7 +9,7 @@ export default class Project extends Component<Props, {}> {
         <img
           className="card-img-top"
           src={require("../img/vga.png")}
-          alt="Card image cap"
+          alt="Project Landing Page"
         />
         <div className="card-body">
           <h2 className="card-title">

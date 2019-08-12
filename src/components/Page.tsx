@@ -3,6 +3,7 @@ import Header from "./Header";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ProjectList from "./ProjectList";
 import { ProjectDetails } from "./ProjectDetails";
+import Login from "./Login";
 
 export default class Page extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class Page extends Component {
             <Switch>
               <Route exact path="/" component={ProjectList} />
               <Route path="/projectDetail" component={ProjectDetails} />
+              <Route path="/login" component={Login} />
             </Switch>
           </BrowserRouter>
         </div>
