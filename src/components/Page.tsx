@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ProjectList from "./ProjectList";
+import ProjectList from "./ProjectList.jsx";
 import { ProjectDetails } from "./ProjectDetails";
 import Login from "./Login";
+import SignUp from "./SignUp";
 
 export default class Page extends Component {
   render() {
@@ -16,6 +17,7 @@ export default class Page extends Component {
               <Route exact path="/" component={ProjectList} />
               <Route path="/projectDetail" component={ProjectDetails} />
               <Route path="/login" component={Login} />
+              <Route path="/signup" component={SignUp} />
             </Switch>
           </BrowserRouter>
         </div>

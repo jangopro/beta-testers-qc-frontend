@@ -9,6 +9,7 @@ export default class Header extends Component {
             Beta Testers Qc
           </a>
           <a href="/login">Login</a>
+          <a href="/signup">Sign Up</a>
         </nav>
       </React.Fragment>
     );

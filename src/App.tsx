@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Page from "./components/Page";
-import { ApolloProvider } from "react-apollo";
+import { ApolloProvider } from "@apollo/react-hooks";
 import { HttpLink } from "apollo-boost";
 import { ApolloClient } from "apollo-boost";
 import { InMemoryCache } from "apollo-cache-inmemory";
