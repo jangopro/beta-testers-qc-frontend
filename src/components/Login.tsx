@@ -11,7 +11,17 @@ const LOGIN = gql`
 `;
 
 export default function Login() {
-  const [login, { data }] = useMutation(LOGIN);
+  const [login, { data }] = useMutation(LOGIN, {
+    onCompleted: data => {
+      if (data.login) {
+        localStorage.setItem("token", data.login);
+        console.log("success");
+        console.log(localStorage);
+      } else {
+        console.log("Not Valid");
+      }
+    }
+  });
 
   const email: React.RefObject<HTMLInputElement> = useRef(null);
   const password: React.RefObject<HTMLInputElement> = useRef(null);
@@ -40,6 +50,7 @@ export default function Login() {
             aria-describedby="emailHelp"
             placeholder="Enter email"
             ref={email}
+            required
           />
         </div>
         <div className="form-group">
@@ -49,6 +60,7 @@ export default function Login() {
             className="form-control"
             id="exampleInputPassword1"
             placeholder="Password"
+            required
             ref={password}
           />
         </div>

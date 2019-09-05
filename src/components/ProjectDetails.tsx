@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
-import { Props } from "../types/types";
 
 export const projectQuery = gql`
   {
@@ -9,6 +8,7 @@ export const projectQuery = gql`
       id
       title
       description
+      url
       creator {
         name
       }
@@ -37,7 +37,9 @@ export function ProjectDetails() {
         <div className="col-md-6">
           <strong>{project.creator.name}</strong>
           <p>{project.description}</p>
-          <button className="btn btn-warning">Je veux tester!</button>
+          <a href={project.url} target="_blank" className="btn btn-warning">
+            Je veux tester!
+          </a>
         </div>
       </div>
     </React.Fragment>

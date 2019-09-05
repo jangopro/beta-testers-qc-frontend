@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import ProjectCard from "./ProjectCard";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { ProjectsProps } from "../types/types";
 
-const projectsQuery = gql`
+export const projectsQuery = gql`
   {
     projects(count: 10) {
       paginatorInfo {
@@ -24,7 +23,7 @@ const projectsQuery = gql`
   }
 `;
 
-export default function ProjectList() {
+export function ProjectList() {
   const { loading, error, data } = useQuery(projectsQuery);
   if (loading) return <div>Fetching</div>;
   if (error) return <div>Error</div>;
