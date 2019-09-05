@@ -8,7 +8,6 @@ import { act } from "react-dom/test-utils";
 TODO: Test Loading state
 TODO: Test Error state
 TODO: Use Fake Data
-TODO: Update to React and React-Dom to 16.9
 */
 
 describe("testing ProjectList component", () => {
