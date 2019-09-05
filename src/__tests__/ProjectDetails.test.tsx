@@ -2,6 +2,7 @@ import React from "react";
 import { MockedProvider } from "@apollo/react-testing";
 import { mount, ReactWrapper } from "enzyme";
 import { projectQuery, ProjectDetails } from "../components/ProjectDetails";
+import { act } from "react-dom/test-utils";
 
 /*
 TODO: Test Loading state
@@ -36,13 +37,15 @@ describe("testing ProjectList component", () => {
     return wait(100).then(() => wrapperInstance.update());
   };
 
-  it("renders without crashing", async () => {
+  it("renders without crashing", () => {
+    let wrapper: ReactWrapper;
     act(() => {
-    const wrapper = mount(
-      <MockedProvider mocks={[mocks]} addTypename={false}>
-        <ProjectDetails />
-      </MockedProvider>
-    );
+      wrapper = mount(
+        <MockedProvider mocks={[mocks]} addTypename={false}>
+          <ProjectDetails />
+        </MockedProvider>
+      );
+    });
     expect(wrapper.exists()).toEqual(true);
 
     return executeMockProviderTestCase(wrapper).then(() => {
