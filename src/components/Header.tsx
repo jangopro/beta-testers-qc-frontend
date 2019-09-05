@@ -1,15 +1,18 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
     return (
       <React.Fragment>
         <nav className="navbar navbar-dark bg-dark">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             Beta Testers Qc
-          </a>
-          <a href="/login">Login</a>
-          <a href="/signup">Sign Up</a>
+          </Link>
+          <Link to="/login">Login</Link>
+          <Link to="/profile">Profile</Link>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/logout">Log Out</Link>
         </nav>
       </React.Fragment>
     );
