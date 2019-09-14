@@ -14,6 +14,8 @@ export const projectsQuery = gql`
         id
         title
         description
+        excerpt
+        image
         creator {
           name
           email

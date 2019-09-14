@@ -8,6 +8,8 @@ export const projectQuery = gql`
       id
       title
       description
+      excerpt
+      image
       url
       creator {
         name
@@ -20,7 +22,7 @@ export function ProjectDetails() {
   const { loading, error, data } = useQuery(projectQuery);
   if (loading) return <div>Fetching</div>;
   if (error) return <div>Error</div>;
-  const project = data!.project;
+  const { project } = data!;
 
   return (
     <React.Fragment>
@@ -28,16 +30,18 @@ export function ProjectDetails() {
       <h2>{project.title}</h2>
       <div className="row">
         <div className="col-md-6">
-          <img
-            src={require("../img/vga.png")}
-            alt="Card cap"
-            style={{ width: "100%" }}
-          />
+          <img src={project.image} alt="Card cap" style={{ width: "100%" }} />
         </div>
         <div className="col-md-6">
+          <p>{project.excerpt}</p>
           <strong>{project.creator.name}</strong>
           <p>{project.description}</p>
-          <a href={project.url} target="_blank" className="btn btn-warning">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-warning"
+          >
             Je veux tester!
           </a>
         </div>
