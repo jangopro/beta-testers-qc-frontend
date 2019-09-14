@@ -9,10 +9,6 @@ export default class Header extends Component {
           <Link className="navbar-brand" to="/">
             Beta Testers Qc
           </Link>
-          <Link to="/login">Login</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/logout">Log Out</Link>
         </nav>
       </React.Fragment>
     );
